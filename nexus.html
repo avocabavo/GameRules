@@ -1,0 +1,220 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <div class="settings">
+    <button onclick="darkMode()">Dark Mode</button>
+    <button onclick="printerFriendly()">Printer Friendly</button>
+  </div>
+  <div class="sectioned-rules">
+    <div><h1 class="page-title">NEXUS</h1></div>
+    <div>
+      <h2>Overview</h2>
+      <p>Nexus is a battle-of-wits card game where you can turn any card your opponent plays against them.</p>
+      <ul>
+        <li>2 Players.</li>
+        <li>10 Minutes.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Objective</h2>
+      <p>Have the most points collected in your score zone at the end of the game.</p>
+    </div>
+    <div>
+      <h2>Components</h2>
+      <ul>
+        <li>
+          A deck of 54 cards.
+          <ul>
+            <li>9 Aces. These are the cards with no text.</li>
+            <li>
+              45 Numbered cards (Numbered 1-45). These cards also have Stars, Skulls or multipliers.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Zones</h2>
+      <p>During a game (after setup is complete) cards will move between the following zones, but only in the order presented here.</p>
+      <ol>
+        <li>
+          The Deck
+          <ul>
+            <li>The deck starts with the 40 cards not dealt out during setup.</li>
+            <li>The deck is common to all players.</li>
+            <li>Keep the deck face down.</li>
+            <li>Spread out the last 5 cards of the deck so that players can see when the deck is running out. The game ends when the deck runs out.</li>
+          </ul>
+        </li>
+        <li>
+          Hands
+          <ul>
+            <li>Each player starts with 3 cards in their hand.</li>
+            <li>Your hand is hidden from your opponent, but the number of cards in your hand is open information.</li>
+          </ul>
+        </li>
+        <li>
+          The Stack
+          <ul>
+            <li>The stack starts with 7 cards.</li>
+            <li>Face up. Overlap the cards in the stack so that it is clear which end is the "top", but make sure that those cards are spread out enough that they can all be read.</li>
+            <li>The stack is common to all players.</li>
+            <li>There are no restrictions on what cards can be put into the stack, or their order.</li>
+            <li>If the stack is ever empty, immediately deal 4 more cards from the deck onto the stack. This is the only exception to the rule that cards must move through the zones in order after setup is complete.</li>
+          </ul>
+        </li>
+        <li>
+          Parades
+          <ul>
+            <li>Each player has their own parade zone, but exactly one will have an active parade at any time while the other is empty.</li>
+            <li>Player 2 starts the game with the active parade, with 1 card in that parade.</li>
+            <li>Face up. All cards in the parade should be visible, but overlapped so that it is clear which card was added to the parade most recently.</li>
+            <li>
+              The cards in a parade must be added in ascending order
+              <ul>
+                <li>A numbered card can be followed by another numbered card only if the following card has a higher number.</li>
+                <li>Aces are both high and low. An ace can follow any numbered card and be followed by any numbered card.</li>
+                <li>An ace cannot follow another ace.</li>
+                <li>These rules only check consecutive pairs of cards, in other words an ace will reset the ascending order.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Score Zones
+          <ul>Each player has their own score zone.</ul>
+          <ul>Face down.</ul>
+          <ul>When a parade is moved into your score zone, keep it separate from any other parades already there.</ul>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <h2>Setup</h2>
+      <ul>
+        <li>
+          Shuffle the deck and deal:
+          <ul>
+            <li>7 cards to start the stack.</li>
+            <li>3 cards to each player's hand.</li>
+            <li>1 card to the second player's parade.</li>
+            <li>The remaining 40 cards make up the deck.</li>
+          </ul>
+        </li>
+        <li>Spread out the bottom 5 cards of the deck.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>On Your Turn</h2>
+      <p>A turn consists of either Pushing or Popping.</p>
+      <h3>Push</h3>
+      <ul>
+        <li>To push, simply play a card from your hand onto the top of the stack.</li>
+        <li>Any card can be played onto the stack regardless of what cards are already there.</li>
+      </ul>
+      <h3>Pop</h3>
+      <ul>
+        <li>To pop, resolve the top card of the stack <em>and</em> draw a card.</li>
+        <li>Both parts of the pop action are mandatory.</li>
+        <li>See the next section for what happens to a card when it resolves.</li>
+      </ul>
+      <h3>Basic Strategy Notes</h3>
+      <p>Pushing lets you exert control over the stack and what happens next in the game, but uses up a card from your hand which will give you fewer options on your next turn.</p>
+      <p>Popping is more passive in that you must let the top card of the stack resolve, whether it is good or bad for you. Popping does build up your hand size, which will give you more options on your next turn.</p>
+      <p>You never have to push. If all the cards in your hand would help your opponent if you play them now, then pop instead and save those cards for a scenario when they could be more useful.</p>
+      <p>If you let your hand size go to zero (by pushing more than you pop) you'll have no option except to pop on your next turn (and accept how the top card of the stack resolves).</p>
+    </div>
+    <div>
+      <h2>Resolving the Top Card of the Stack</h2>
+      <ul>
+        <li>The top card of the stack resolves when a player pops.</li>
+        <li>Only one card resolves each time a player pops.</li>
+        <li>If a resolving card can be added to the active parade, then it does join the active parade, regardless of which player popped and which player owns the active parade.</li>
+        <li>If a resolving card cannot be added to the active parade, then the active parade is scored and the resolving card starts a new parade for the other player instead.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>End of the Game</h2>
+      <ul>
+        <li>The game ends when the deck runs out.</li>
+        <li>At that time, any cards in players' hands, the stack, or the active parade are not scored.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Scoring</h2>
+      <ul>
+        <li>Stars are positive points.</li>
+        <li>Skulls are negative points.</li>
+        <li>A multiplier affects the cards in your score zone <em>that came from the same parade.</em></li>
+        <li>Aces do not contribute to your score.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Card Life-Cycle</h2>
+      <p>As mentioned in the "Zones" section, cards must progress through zones in order.</p>
+      <ul>
+        <li>
+          Deck to Hand. "Drawing" a card is part of the pop action.
+        </li>
+        <li>
+          Hand to Stack. "Pushing" is the whole of the push action.
+        </li>
+        <li>
+          Stack to Parade. "Resolving" is the other part of the pop action.
+        </li>
+        <li>
+          Parade to Score Zone. "Scoring" happens to the active parade when resolves but cannot be added to the current parade.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Parity Checks</h2>
+      <ul>
+        <li>
+          Hand + Hand + Stack = 13
+          <ul>
+            <li>If that sum is less than 13, then somebody forgot to draw a card.</li>
+            <li>If the stack runs out and must be refilled with 4 cards from the deck, then the target sum increases by 4.</li>
+          </ul>
+        </li>
+        <li>
+          Whose turn is it? Cound the cards in the stack:
+          <ul>
+            <li>Odd - Player 1's turn.</li>
+            <li>Even - Player 2's turn.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>The Tournament Rule</h2>
+      <p>For serious players, the tournament rule says that you're allowed to insert the card that you push anywhere onto the stack. Normally you'll still want to push cards onto the top of the stack most of the time, but this option is necessary on occasion to "turn any card your opponent plays against them".</p>
+    </div>
+    <div>
+      <h2>Alternate Tournament Rule</h2>
+      <p>Again for serious players, this rule would replace the tournament rule. Introduce Passing as an alternative to Pushing or Popping. You may only pass if you currently control the active parade. In the 4 player variant, you may also pass if your partner controls the active parade.</p>
+      <p>Using the alternate tournament rule would wreck the "whose turn is it?" parity check.</p>
+    </div>
+    <div>
+      <h2>4 Player Variation</h2>
+      <ul>
+        <li>Nexus can be played with 4 players in 2 teams of 2.</li>
+        <li>You're on the same team as the player diagonally across from you.</li>
+        <li>Add the score zones from you and your partner together at the end of the game.</li>
+        <li>Each player has their own hand (starting with 3 cards).</li>
+        <li>When a card resolves and cannot continue the current parade, the new parade that it starts will belong to the next player in turn order (the important thing is that parade ownership switches from one team to the other).</li>
+        <li>This version is a good introduce for new players. In that case "table-talk" and strategization between teammates should be allowed and encouraged.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Double Stack Variation</h2>
+      <ul>
+        <li>For a more chaotic game, deal out 2 stacks when setting up.</li>
+        <li>On your own turn, you decide which stack to use. You may push to either stack and pop from either stack.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+<script src="js/settings.js"></script>
