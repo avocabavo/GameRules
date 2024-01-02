@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <div class="settings">
+    <button onclick="darkMode()">Dark Mode</button>
+    <button onclick="printerFriendly()">Printer Friendly</button>
+  </div>
+  <div class="sectioned-rules">
+    <div><h1 class="page-title">Tank by Committee</h1></div>
+    <div>
+      <h2>Overview</h2>
+      <p>Tank by Committee is a chaotic battle game where you have to battle your own vehicle as much as the enemy.</p>
+      <ul>
+        <li>2-6 Players</li>
+        <li>? Minutes ... Target 30</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Objective</h2>
+      <p>Depends on what scenario you're playing.</p>
+      <ul>
+        <li>Collect the most treasure</li>
+        <li>Capture the enemy flag and return it to your own end zone</li>
+        <li>Be the first to complete a race</li>
+        <li>...</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Components</h2>
+      <ul>
+        <li>
+          Attack Type Cards
+          <ul>
+            <li>d3 Damage x6</li>
+            <li>Spin 72&deg; clockwise x3</li>
+            <li>Spin 72&deg; counterclockwise x3</li>
+            <li>Repel 2 cardlengths x3</li>
+            <li>Tractor 2 cardlengths x3</li>
+          </ul>
+        </li>
+        <li>
+          <p>Cards with a move and an action.</p>
+          <p>Moves</p>
+          <ul>
+            <li>Lunge Right &amp; Left</li>
+            <li>Diagonal Shift Right &amp; Left</li>
+            <li>Turn 45&deg; Right &amp; Left</li>
+            <li>Turn 60&deg; Right &amp; Left</li>
+            <li>Turn 75&deg; Right &amp; Left</li>
+          </ul>
+          <p>Actions</p>
+          <ul>
+            <li>Attack Ray &infin; Right, Left &amp; Center</li>
+            <li>Attack Cone Right, Left &amp; Center</li>
+            <li>Attack Sphere</li>
+            <li>Heal d3 Damage</li>
+            <li>Reflect Incoming Attacks</li>
+            <li>Reflect Collision Damage</li>
+          </ul>
+        </li>
+        <li>
+          <p>Terrain and Items</p>
+          <ul>
+            <li>Treasure</li>
+            <li>Boulders - Blocks movement and attacks.</li>
+            <li>Tall Grass - Blocks attacks.</li>
+            <li>Canyon - Blocks movement.</li>
+          </ul>
+        </li>
+        <li>
+          d6's to be used as damage markers and as d3's
+          <table>
+            <thead><tr><th>Roll</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>1-2</td><td>1</td></tr>
+              <tr><td>3-4</td><td>2</td></tr>
+              <tr><td>5-6</td><td>3</td></tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          An identity marker for each player.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Game Structure</h2>
+      <p>A game of tank by committee involves a setup followed by a series of rounds.</p>
+      <p>A round consists of the following steps, each done simultaneously by all players:</p>
+      <ol>
+        <li>Except for one of your cards (which remains on the table marking the current location of your tank) shuffle all your cards together then discard one, and then discard another card for each damage on your tank.</li>
+        <li>Choose N cards, where N is the length of this round and put them in an ordered pile.</li>
+        <li>Choose one of your attack type cards.</li>
+        <li>
+          Resolve those cards one at a time by:
+          <ol>
+            <li>Play that card on top of your last card so that the gray tread marks on the new card align with the black tread marks on your last card.</li>
+            <li>Each tank involved in a collision takes d3 damage.</li>
+            <li>Move each tank as little as possible without rotating until nothing is colliding.</li>
+            <li>Check for Rays, Cones or Spheres that hit. Deal damage and apply rotations and shifts simultaneously. Only the latest card in each tank can use its ability and only the latest card in each tank can be hit.</li>
+            <li>Each tank involved in a collision takes d3 damage if it hasn't already taken collision damage this turn.</li>
+            <li>Move each tank as little as possible without rotating until nothing is colliding.</li>
+            <li>Each tank picks up any items (treasure or unclaimed tank cards) that it is the only tank overlapping.</li>
+          </ol>
+        </li>
+        <li>Move your pawn and damage markers to the last card in your tank.</li>
+        <li>Pick up all your cards except the last card in your tank.</li>
+        <li>Heal 1 damage.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Setup</h2>
+      <ol>
+        <li>Each player gets 1 damage attack type card.</li>
+        <li>Each player gets 2 more action type cards, and may mulligan any subset of them once.</li>
+        <li>Each player gets 8 move+action cards, and may mulligan any subset of them once.</li>
+        <li>Each player randomly selects one of their move+action cards and puts it face up onto the table somewhere (depends on scenario) with their identity marker.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Rounds</h2>
+      <p>Start with a 2-card round and then increase by 1 card each round up to a max of 6 cards per round.</p>
+    </div>
+    <div>
+      <h2>Scenarios</h2>
+      <p>TODO</p>
+    </div>
+  </div>
+</body>
+
+<script src="js/settings.js"></script>
+</html>
