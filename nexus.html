@@ -30,9 +30,9 @@
         <li>
           A deck of 36 cards.
           <ul>
-            <li>6 Aces. These are the cards with no number.</li>
+            <li>6 Aces. These are the cards with "A" in the corners instead of a number. Some of the aces also have a points, and their point value is equal to the total number of aces in the parade they are collected in.</li>
             <li>
-              30 Numbered cards (Numbered 1-30). These cards also have Stars, Skulls or Multipliers.
+              30 Numbered cards (Numbered 1-30). These cards also have <span class="star">&starf;</span>s, <span class="skull">&#9760;</span>s, multipliers or other effects.
             </li>
           </ul>
         </li>
@@ -59,13 +59,13 @@
           </ul>
         </li>
         <li>
-          The Stack
+          The Nexus
           <ul>
-            <li>The stack starts with 7 cards.</li>
-            <li>Face up. Overlap the cards in the stack so that it is clear which end is the "top", but make sure that those cards are spread out enough that they can all be read.</li>
-            <li>The stack is common to all players.</li>
-            <li>There are no restrictions on what cards can be put into the stack, or their order.</li>
-            <li>If the stack is ever empty, immediately deal 4 more cards from the deck onto the stack. This is the only exception to the rule that cards must move through the zones in order after setup is complete.</li>
+            <li>The nexus starts with 7 cards.</li>
+            <li>Face up. Overlap the cards in the nexus so that it is clear which end is the "top", but make sure that those cards are spread out enough that they can all be read.</li>
+            <li>The nexus is common to all players.</li>
+            <li>There are no restrictions on what cards can be put into the nexus, or their order.</li>
+            <li>If the nexus is ever empty, immediately deal 4 more cards from the deck onto the nexus. This is the only exception to the rule that cards must move through the zones in order after setup is complete.</li>
           </ul>
         </li>
         <li>
@@ -74,8 +74,8 @@
             <li>Each player has their own parade zone, but exactly one will have an active parade at any time while the other is empty.</li>
             <li>Player 2 starts the game with the active parade, with 1 card in that parade.</li>
             <li>Face up. All cards in the parade should be visible, but overlapped so that it is clear which card was added to the parade most recently.</li>
-            <li>
-              The cards in a parade must be added in ascending order
+            <li id="rules-of-the-fairy-court">
+              The cards in a parade must be added according to the rules of the fairy court:
               <ul>
                 <li>A numbered card can be followed by another numbered card only if the following card has a higher number.</li>
                 <li>Aces are both high and low. An ace can follow any numbered card and be followed by any numbered card.</li>
@@ -101,41 +101,42 @@
         <li>
           Shuffle the deck and deal:
           <ul>
-            <li>7 cards to start the stack.</li>
+            <li>7 cards to start the nexus.</li>
             <li>3 cards to each player's hand.</li>
             <li>1 card to the second player's parade.</li>
             <li>The remaining 40 cards make up the deck.</li>
           </ul>
         </li>
-        <li>Spread out the bottom 5 cards of the deck.</li>
+        <li>Spread out the bottom 5 cards of the deck (the "dregs") so that the players can see when the deck is about to run out.</li>
       </ul>
     </div>
     <div>
       <h2>On Your Turn</h2>
-      <p>A turn consists of either Pushing or Popping.</p>
-      <h3>Push</h3>
+      <p>A turn consists of either sowing chaos or attending court.</p>
+      <h3>SOW CHAOS!</h3>
       <ul>
-        <li>To push, simply play a card from your hand onto the top of the stack.</li>
-        <li>Any card can be played onto the stack regardless of what cards are already there.</li>
+        <li>To sow chaos, simply play a card from your hand onto the top of the nexus.</li>
+        <li>Any card can be played onto the nexus regardless of what cards are already there.</li>
       </ul>
-      <h3>Pop</h3>
+      <h3>Attend Court</h3>
       <ul>
-        <li>To pop, resolve the top card of the stack <em>and</em> draw a card.</li>
-        <li>Both parts of the pop action are mandatory.</li>
+        <li>To attend court, resolve the top card of the nexus <em>and</em> draw a card.</li>
+        <li>Both parts of this action are mandatory.</li>
         <li>See the next section for what happens to a card when it resolves.</li>
       </ul>
       <h3>Basic Strategy Notes</h3>
-      <p>Pushing lets you exert control over the stack and what happens next in the game, but uses up a card from your hand which will give you fewer options on your next turn.</p>
-      <p>Popping is more passive in that you must let the top card of the stack resolve, whether it is good or bad for you. Popping does build up your hand size, which will give you more options on your next turn.</p>
-      <p>You never have to push. If all the cards in your hand would help your opponent if you play them now, then pop instead and save those cards for a scenario when they could be more useful.</p>
-      <p>If you let your hand size go to zero (by pushing more than you pop) you'll have no option except to pop on your next turn (and accept how the top card of the stack resolves).</p>
+      <p>Sowing chaos lets you exert control over the nexus and what happens next in the game, but uses up a card from your hand which will give you fewer options on your next turn.</p>
+      <p>Attending court is more passive in that you must let the top card of the nexus resolve, whether it is good or bad for you. Attending court does build up your hand size, which will give you more options on your next turn.</p>
+      <p>You never have to sow chaos. If all the cards in your hand would help your opponent if you play them now, then attend court instead and save those cards for a scenario when they could be more useful.</p>
+      <p>If you let your hand size go to zero (by sowing chaos more than you attend court) you'll have no option except to attend court on your next turn (and accept how the top card of the nexus resolves).</p>
     </div>
     <div>
-      <h2>Resolving the Top Card of the Stack</h2>
+      <h2>Resolving the Top Card of the Nexus</h2>
+      <p>A card resolves from the nexus when a player attends court. When attending court, cards obey the rules of the fairy court according to their ranks (see the <a href="#rules-of-the-fairy-court">rules of the fairy court</a> section)</p>
       <ul>
-        <li>The top card of the stack resolves when a player pops.</li>
-        <li>Only one card resolves each time a player pops.</li>
-        <li>If a resolving card can be added to the active parade, then it does join the active parade, regardless of which player popped and which player owns the active parade.</li>
+        <li>The top card of the nexus is the only card that can resolve.</li>
+        <li>Only one card resolves each time a player attends court.</li>
+        <li>If a resolving card can be added to the active parade, then it does join the active parade, regardless of which player is attending court or which player owns the active parade.</li>
         <li>If a resolving card cannot be added to the active parade, then the active parade is scored and the resolving card starts a new parade for the other player instead.</li>
       </ul>
     </div>
@@ -143,16 +144,27 @@
       <h2>End of the Game</h2>
       <ul>
         <li>The game ends when the deck runs out.</li>
-        <li>At that time, any cards in players' hands, the stack, or the active parade are not scored.</li>
+        <li>At that time, any cards in players' hands, the nexus, or the active parade are not scored.</li>
       </ul>
     </div>
     <div>
       <h2>Scoring</h2>
+      <p>The point value of each card is printed along both of the long sides of that card.</p>
       <ul>
-        <li>Stars are positive points.</li>
-        <li>Skulls are negative points.</li>
-        <li>A multiplier affects the cards in your score zone <em>that came from the same parade.</em></li>
-        <li>Aces do not contribute to your score.</li>
+        <li><span class="star">&starf;</span>s are good points.</li>
+        <li><span class="skull">&#9760;</span>s are bad points.</li>
+        <li>A "x2" doubles the value of the cards in your score zone <em>that came from the same parade.</em> Multiple "x2" cards in the same parade stack.</li>
+        <li>"<span class="star">&starf;</span><span class="arrows">&harr;</span><span class="skull">&#9760;</span>" is not worth any points by itself, but indicates to swap the meaning of <span class="star">&starf;</span>s and <span class="skull">&#9760;</span>s <em>in that same parade.</em> Two "<span class="star">&starf;</span><span class="arrows">&harr;</span><span class="skull">&#9760;</span>" cards in the same parade cancel each other out.</li>
+        <li>"x0" eliminates all good and bad points in that parade.</li>
+        <li>Aces without any symbols on the sides of the card do not contribute to your score.</li>
+        <li>"<span class="star">&starf;</span>=#A" indicates that that card is worth a number of <span class="star">&starf;</span>s equal to the number of aces in that parade. These <span class="star">&starf;</span>s can be multiplied, swapped or eliminated just like any other <span class="star">&starf;</span>s.</li>
+      </ul>
+      <p>If playing a single game, add your <span class="star">&starf;</span>s points to your <em>opponent's</em> <span class="skull">&#9760;</span>s points to get your final score.</p>
+      <p>If playing a series, add that score to your running total.</p>
+      <ul>
+        <li>A player wins when their running total reaches 50.</li>
+        <li>If both players have reached 50, the winner is the player who exceeded that threshold by a greater margin.</li>
+        <li>In the event of a tie neither player wins (yet). The series continues.</li>
       </ul>
     </div>
     <div>
@@ -160,13 +172,13 @@
       <p>As mentioned in the "Zones" section, cards must progress through zones in order.</p>
       <ul>
         <li>
-          Deck to Hand. "Drawing" a card is part of the pop action.
+          Deck to Hand. "Drawing" a card is part of attending court.
         </li>
         <li>
-          Hand to Stack. "Pushing" is the whole of the push action.
+          Hand to Nexus. "Playing a Card" happens when a player sows chaos.
         </li>
         <li>
-          Stack to Parade. "Resolving" is the other part of the pop action.
+          Nexus to Parade. "Resolving" is the other part of attending court.
         </li>
         <li>
           Parade to Score Zone. "Scoring" happens to the active parade when resolves but cannot be added to the current parade.
@@ -177,14 +189,14 @@
       <h2>Parity Checks</h2>
       <ul>
         <li>
-          Hand + Hand + Stack = 13
+          Hand + Hand + Nexus = 13
           <ul>
             <li>If that sum is less than 13, then somebody forgot to draw a card.</li>
-            <li>If the stack runs out and must be refilled with 4 cards from the deck, then the target sum increases by 4.</li>
+            <li>If the nexus runs out and must be refilled with 4 cards from the deck, then the target sum increases by 4.</li>
           </ul>
         </li>
         <li>
-          Whose turn is it? Cound the cards in the stack:
+          Whose turn is it? Cound the cards in the nexus:
           <ul>
             <li>Odd - Player 1's turn.</li>
             <li>Even - Player 2's turn.</li>
@@ -194,7 +206,7 @@
     </div>
     <div>
       <h2>The Tournament Rule</h2>
-      <p>For serious players, the tournament rule says that you're allowed to insert the card that you push anywhere onto the stack. Normally you'll still want to push cards onto the top of the stack most of the time, but this option is necessary on occasion to "turn any card your opponent plays against them".</p>
+      <p>For serious players, the tournament rule says that you're allowed to insert the card that you push anywhere onto the nexus. Normally you'll still want to push cards onto the top of the nexus most of the time, but this option is necessary on occasion to "turn any card your opponent plays against them".</p>
     </div>
     <div>
       <h2>Alternate Tournament Rule</h2>
@@ -213,10 +225,11 @@
       </ul>
     </div>
     <div>
-      <h2>Double Stack Variation</h2>
+      <h2>Double Nexus Variation</h2>
       <ul>
-        <li>For a more chaotic game, deal out 2 stacks when setting up.</li>
-        <li>On your own turn, you decide which stack to use. You may push to either stack and pop from either stack.</li>
+        <li>For a more chaotic game, deal out 2 nexuses when setting up.</li>
+        <li>On your own turn, you decide which nexus to use. You may sow chaos at either nexus and attend court at either nexus.</li>
+        <li>Do not duplicate any of the other zones (use just 1 deck, 1 hand for each player, 1 active parade and 1 empty parade, and 1 score zone for each player).</li>
       </ul>
     </div>
   </div>
