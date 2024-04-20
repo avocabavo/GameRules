@@ -42,13 +42,15 @@ const Hex = {
       vDiv({
         class: 'relative-hex',
         style: {
-          top: this.screenOffsetY + 'px',
-          left: this.screenOffsetX + 'px'
+          top: this.screenOffsetY / 4 + 'px',
+          left: this.screenOffsetX / 4 + 'px',
         },
       }, [
         vImg({
           class: 'hex-image',
           src: `/cosmic-hexagons/images/${this.imageName}.png`,
+          height: '100%',
+          width: '100%',
         }),
         vDiv({
           class: 'clickable-hexpart',

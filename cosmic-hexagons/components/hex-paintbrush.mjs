@@ -28,6 +28,8 @@ const HexPaintbrush = {
       vImg({
         class: 'hex-button-image',
         src: `/cosmic-hexagons/images/${this.cosmoid}.png`,
+        height: '100%',
+        width: '100%',
         onClick: selectMe
       })
     )
