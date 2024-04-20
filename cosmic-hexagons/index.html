@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Score Cosmic Hexagons</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <style>
+    #hex-editor {
+      display: flex;
+      flex-direction: row;
+    }
+    #score-report {
+      font-size: 100px;
+    }
+    #the-board {
+      width: 2850px;
+      height: 2475px;
+      border: 3px solid green;
+      position: relative;
+      background-image: url('/cosmic-hexagons/images/just-the-directions.png');
+    }
+    .centered-hex {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      width: 450px;
+      height: 450px;
+      position: absolute;
+      top: 1012.5px;
+      left: 1200px;
+      pointer-events: none;
+    }
+    .relative-hex {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      position: relative;
+      width: 450px;
+      height: 450px;
+      pointer-events: none;
+    }
+    .button-hex {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      width: 450px;
+      height: 450px;
+    }
+    .selected-button-hex {
+      margin: 0;
+      border: 5px solid gray;
+      padding: 0;
+      width: 450px;
+      height: 450px;
+    }
+    .hex-image {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      position: absolute;
+      inset: 0;
+    }
+    .hex-button-image {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+    .coordinates, .cosmoid-text {
+      position: relative;
+      left: 135px;
+      top: 135px;
+      font-weight: bolder;
+      color: pink;
+    }
+    .clickable-hexpart {
+      position: absolute;
+      inset: 56px;
+      border-radius: 50%;
+      pointer-events: all;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="hex-editor">
+      <div id="the-board">
+        <hex
+          v-for="tile in tiles"
+          :position="tile.position"
+          :cosmoid="tile.cosmoid"
+          v-on:paint-me="paint"
+        ></hex>
+      </div>
+      <div
+        id="selector-pen"
+      >
+        <hex-paintbrush
+          v-for="cosmoid in cosmoids"
+          :cosmoid="cosmoid"
+          :selected="cosmoid == selectedCosmoid"
+          v-on:select-me="selectedCosmoid = cosmoid"
+        ></hex-paintbrush>
+      </div>
+    </div>
+    <div id="score-report">
+      <p>Bee Points: {{beePoints}}</p>
+      <p>Comet Points: {{cometPoints}}</p>
+      <p>Pyramid Points: {{pylonPoints}}</p>
+      <p>Island Points: {{islandPoints}}</p>
+      <p style="color: white; background-color: black;">
+        Black Hole Count: {{holeCount}}
+      </p>
+    </div>
+  </div>
+</body>
+
+<script type="module">
+  import {
+    createApp
+  } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  import {Cosmoid} from './modules/cosmoid.mjs'
+  import {Position, distance, squaredTrueDistance} from './modules/position.mjs'
+  import {Tile} from './modules/tile.mjs'
+  import {Hex} from './components/hex.mjs'
+  import {HexPaintbrush} from './components/hex-paintbrush.mjs'
+  import {findDiads, findTriads} from './modules/utils.mjs'
+
+  console.log(Tile)
+
+  createApp({
+    components: {
+      Hex,
+      HexPaintbrush
+    },
+    data() {
+      return {
+        message: 'let\'s score some cosmic hexagons!',
+        cosmoids: Object.keys(Cosmoid),
+        selectedCosmoid: Cosmoid.empty,
+        tiles: [
+          new Tile(new Position(0, -3, 3), Cosmoid.empty),
+          new Tile(new Position(-1, -2, 3), Cosmoid.empty),
+          new Tile(new Position(-2, -1, 3), Cosmoid.empty),
+          new Tile(new Position(-3, 0, 3), Cosmoid.empty),
+          new Tile(new Position(1, -3, 2), Cosmoid.empty),
+          new Tile(new Position(0, -2, 2), Cosmoid.empty),
+          new Tile(new Position(-1, -1, 2), Cosmoid.empty),
+          new Tile(new Position(-2, 0, 2), Cosmoid.empty),
+          new Tile(new Position(-3, 1, 2), Cosmoid.empty),
+          new Tile(new Position(2, -3, 1), Cosmoid.empty),
+          new Tile(new Position(1, -2, 1), Cosmoid.empty),
+          new Tile(new Position(0, -1, 1), Cosmoid.empty),
+          new Tile(new Position(-1, 0, 1), Cosmoid.empty),
+          new Tile(new Position(-2, 1, 1), Cosmoid.empty),
+          new Tile(new Position(-3, 2, 1), Cosmoid.empty),
+          new Tile(new Position(3, -3, 0), Cosmoid.empty),
+          new Tile(new Position(2, -2, 0), Cosmoid.empty),
+          new Tile(new Position(1, -1, 0), Cosmoid.empty),
+          new Tile(new Position(0, 0, 0), Cosmoid.empty),
+          new Tile(new Position(-1, 1, 0), Cosmoid.empty),
+          new Tile(new Position(-2, 2, 0), Cosmoid.empty),
+          new Tile(new Position(-3, 3, 0), Cosmoid.empty),
+          new Tile(new Position(3, -2, -1), Cosmoid.empty),
+          new Tile(new Position(2, -1, -1), Cosmoid.empty),
+          new Tile(new Position(1, 0, -1), Cosmoid.empty),
+          new Tile(new Position(0, 1, -1), Cosmoid.empty),
+          new Tile(new Position(-1, 2, -1), Cosmoid.empty),
+          new Tile(new Position(-2, 3, -1), Cosmoid.empty),
+          new Tile(new Position(3, -1, -2), Cosmoid.empty),
+          new Tile(new Position(2, 0, -2), Cosmoid.empty),
+          new Tile(new Position(1, 1, -2), Cosmoid.empty),
+          new Tile(new Position(0, 2, -2), Cosmoid.empty),
+          new Tile(new Position(-1, 3, -2), Cosmoid.empty),
+          new Tile(new Position(3, 0, -3), Cosmoid.empty),
+          new Tile(new Position(2, 1, -3), Cosmoid.empty),
+          new Tile(new Position(1, 2, -3), Cosmoid.empty),
+          new Tile(new Position(0, 3, -3), Cosmoid.empty),
+        ]
+      }
+    },
+    methods: {
+      paint(position) {
+        this.tiles.forEach(tile=> {
+          if (distance(tile.position, position) == 0) {
+            if (tile.cosmoid == this.selectedCosmoid) {
+              tile.cosmoid = Cosmoid.empty
+            } else {
+              tile.cosmoid = this.selectedCosmoid
+            }
+          }
+        })
+      }
+    },
+    computed: {
+      beePoints() {
+        let score = 0
+        let beeTiles = this.tiles.filter(tile=> tile.cosmoid == Cosmoid.bee)
+        findDiads(beeTiles).forEach(diad=> {
+          let d = distance(diad[0].position, diad[1].position)
+          if (d == 1) score += 3
+        })
+        findTriads(beeTiles).forEach(triad=> {
+          let d1 = distance(triad[0].position, triad[1].position)
+          let d2 = distance(triad[1].position, triad[2].position)
+          let d3 = distance(triad[0].position, triad[2].position)
+          if (d1 != 1) return
+          if (d2 != 1) return
+          if (d3 != 1) return
+          score += 4
+        })
+        return score
+      },
+      cometPoints() {
+        let score = 0
+        let cometTiles = this.tiles.filter(tile=> tile.cosmoid == Cosmoid.comet)
+        let rows = []
+        for (let zLevel = -3; zLevel <= 3; zLevel++) {
+          let row = cometTiles.filter(tile=> tile.position.z == zLevel)
+          row.sort((tile1, tile2)=> tile1.position.x - tile2.position.x)
+          rows.push(row)
+        }
+        for (let yLevel = -3; yLevel <= 3; yLevel++) {
+          let row = cometTiles.filter(tile=> tile.position.y == yLevel)
+          row.sort((tile1, tile2)=> tile1.position.x - tile2.position.x)
+          rows.push(row)
+        }
+        for (let xLevel = -3; xLevel <= 3; xLevel++) {
+          let row = cometTiles.filter(tile=> tile.position.x == xLevel)
+          row.sort((tile1, tile2)=> tile1.position.y - tile2.position.y)
+          rows.push(row)
+        }
+        rows.forEach(row=> {
+          let chainStart = null
+          let chainEnd = null
+          row.forEach(comet=> {
+            if (chainStart == null) {
+              chainStart = comet
+              chainEnd = comet
+              return
+            }
+            let d = distance(comet.position, chainEnd.position)
+            if (d == 1) {
+              chainEnd = comet
+              return
+            }
+            let l = distance(chainStart.position, chainEnd.position)
+            score += l * l * 2
+            chainStart = comet
+            chainEnd = comet
+          })
+          if (chainStart != null) {
+            let l = distance(chainStart.position, chainEnd.position)
+            score += l * l * 2
+          }
+        })
+        return score
+      },
+      pylonPoints() {
+        let pylonTiles = this.tiles.filter(tile=> tile.cosmoid == Cosmoid.pylon)
+        let sizes = new Set()
+        findTriads(pylonTiles).forEach(triad=> {
+          let sd1 = squaredTrueDistance(triad[0].position, triad[1].position)
+          let sd2 = squaredTrueDistance(triad[1].position, triad[2].position)
+          let sd3 = squaredTrueDistance(triad[0].position, triad[2].position)
+          if (sd1 == sd2 && sd2 == sd3) {
+            sizes.add(sd1)
+          }
+        })
+        return sizes.size * 12
+      },
+      islandPoints() {
+        let score = 0
+        let islandTiles = this.tiles.filter(tile=> tile.cosmoid == Cosmoid.island)
+        if (islandTiles.length == 0) return 0
+        let otherTiles = this.tiles.filter(tile=>
+          tile.cosmoid != Cosmoid.island &&
+          tile.cosmoid != Cosmoid.empty
+        )
+        if (islandTiles.length == 1) return otherTiles.length
+        islandTiles.forEach(island=> {
+          let d = null
+          islandTiles.forEach(otherIsland=> {
+            let tempD = distance(island.position, otherIsland.position)
+            if (tempD == 0) return
+            if (d == null) {
+              d = tempD
+              return
+            }
+            d = Math.min(d, tempD)
+          })
+          score += otherTiles.filter(tile=> distance(tile.position, island.position) < d).length
+        })
+        return score
+      },
+      holeCount() {
+        return this.tiles.filter(tile=> tile.cosmoid == Cosmoid.hole).length
+      }
+    }
+  }).mount('#app')
+</script>
