@@ -8,7 +8,7 @@ const Cosmoid = {
   empty: 'empty',
   bee: 'bee',
   comet: 'comet',
-  pylon: 'pylon',
+  pyramid: 'pyramid',
   island: 'island',
   hole: 'hole',
 }

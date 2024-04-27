@@ -18,7 +18,6 @@ const HexPaintbrush = {
   emits: ['select-me'],
   render() {
     const selectMe = ()=> {
-      console.log('sending click event')
       this.$emit('select-me')
     }
     return vDiv(

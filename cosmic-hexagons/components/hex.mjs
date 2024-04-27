@@ -32,7 +32,6 @@ const Hex = {
   emits: ['paint-me'],
   render() {
     const paintMe = ()=> {
-      console.log('being painted')
       this.$emit('paint-me', this.position)
     }
     return vDiv(

@@ -1,0 +1,106 @@
+
+#hex-editor {
+  display: flex;
+  flex-direction: row;
+}
+#score-report {
+  font-size: 25px;
+}
+#the-board {
+  width: 712.5px;
+  height: 618.75px;
+  border: 3px solid green;
+  position: relative;
+  background-image: url('/cosmic-hexagons/images/just-the-directions.png');
+  background-size: 100%;
+}
+#editor-overlay {
+  position: relative;
+  z-index: 1;
+}
+.centered-hex {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 112.5px;
+  height: 112.5px;
+  position: absolute;
+  top: 253.125px;
+  left: 300px;
+  pointer-events: none;
+}
+.relative-hex {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  position: relative;
+  width: 112.5px;
+  height: 112.5px;
+  pointer-events: none;
+}
+.button-hex {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 112.5px;
+  height: 112.5px;
+}
+.selected-button-hex {
+  margin: 0;
+  border: 5px solid gray;
+  padding: 0;
+  width: 112.5px;
+  height: 112.5px;
+}
+.hex-image {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+}
+.hex-button-image {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.coordinates, .cosmoid-text {
+  position: relative;
+  left: 33.75px;
+  top: 33.75px;
+  font-weight: bolder;
+  color: pink;
+}
+.clickable-hexpart {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  pointer-events: all;
+}
+.board-selecting-button {
+  width: 5em;
+  background-color: lightgray;
+  margin: 0.5em;
+  border: 0.2em solid darkgray;
+  border-radius: 1em;
+}
+.selected-board-button {
+  font-weight: bolder;
+  background-color: white;
+  border: 0.2em solid darkgray;
+}
+.scoreboard-cosmoid {
+  height: 100%;
+  width: 100%;
+}
+.scoreboard th {
+  width: 3em;
+  height: 3em;
+}
+.score-datapoint {
+  border: 1px solid black;
+  text-align: center;
+}
+.score-sum {
+  font-weight: bold;
+}
