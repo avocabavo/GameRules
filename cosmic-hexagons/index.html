@@ -23,6 +23,11 @@
         class="board-selecting-button"
         @click="addBoard"
       >+</button>
+      <button
+        v-if="Object.keys(boards).length > 2"
+        class="board-selecting-button"
+        @click="subtractBoard"
+      >remove</button>
     </div>
     <div id="hex-editor">
       <div id="the-board">
@@ -186,6 +191,12 @@
         this.boards[boardName] = new HexBoard(boardName, 3)
         this.boardsArray.push(this.boards[boardName])
         this.selectedBoard = this.boards[boardName]
+        this.refreshKey++
+      },
+      subtractBoard() {
+        this.boardsArray.pop()
+        delete this.boards[Object.keys(this.boards).length.toString()]
+        this.selectedBoard = this.boardsArray[this.boardsArray.length - 1]
         this.refreshKey++
       },
       takePicture() {
