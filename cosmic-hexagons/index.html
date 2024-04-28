@@ -209,7 +209,10 @@
       takePicture() {
         let videoContainer = document.getElementById('video-container')
         videoContainer.innerHTML = ''
-        navigator.mediaDevices.getUserMedia({video: true, audio: false}).then((stream)=> {
+        navigator.mediaDevices.getUserMedia({
+          video: {facingMode: 'environment'},
+          audio: false
+        }).then((stream)=> {
           let video = document.createElement('video')
           video.autoplay = true
           video.srcObject = stream

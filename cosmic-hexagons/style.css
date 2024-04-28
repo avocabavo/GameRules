@@ -62,10 +62,11 @@
 #selector-pen {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .button-hex {
   margin: 0;
-  border: 0;
+  border: 5px solid rgba(1, 1, 1, 0);
   padding: 0;
   max-width: 112.5px;
   max-height: 112.5px;
