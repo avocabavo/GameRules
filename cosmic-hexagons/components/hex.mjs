@@ -17,10 +17,10 @@ const Hex = {
   },
   computed: {
     screenOffsetY() {
-      return - this.position.z * 297
+      return - this.position.z * 66.01
     },
     screenOffsetX() {
-      return (this.position.y - this.position.x) * 172
+      return (this.position.y - this.position.x) * 38.09
     },
     imageName() {
       if (this.cosmoid == Cosmoid.empty) {
@@ -32,7 +32,6 @@ const Hex = {
   emits: ['paint-me'],
   render() {
     const paintMe = ()=> {
-      console.log('being painted')
       this.$emit('paint-me', this.position)
     }
     return vDiv(
@@ -42,8 +41,8 @@ const Hex = {
       vDiv({
         class: 'relative-hex',
         style: {
-          top: this.screenOffsetY / 4 + 'px',
-          left: this.screenOffsetX / 4 + 'px',
+          top: this.screenOffsetY + '%',
+          left: this.screenOffsetX + '%',
         },
       }, [
         vImg({

@@ -1,0 +1,133 @@
+
+#hex-editor {
+  display: flex;
+  flex-direction: row;
+}
+#score-report {
+  font-size: 25px;
+}
+#the-board {
+  /* width: 712.5px; */
+  width: 100%;
+  /* aspect-ratio: 1.1515; */
+  /* height: auto; */
+  border: 1px solid green;
+  /* border: 0; */
+  position: relative;
+  background-image: url('/cosmic-hexagons/images/just-the-directions.png');
+  background-size: 100%;
+}
+#the-board::before {
+  content: "";
+  display: block;
+  padding-top: 86.842%;
+}
+#editor-overlay {
+  position: relative;
+  z-index: 1;
+}
+#editor-overlay button {
+  pointer-events: all;
+}
+.brick {
+  pointer-events: none;
+}
+.board-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.centered-hex {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  height: 18.182%;
+  width: 15.789%;
+  position: absolute;
+  top: 40.909%;
+  left: 42.105%;
+  pointer-events: none;
+}
+.relative-hex {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#selector-pen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.button-hex {
+  margin: 0;
+  border: 5px solid rgba(1, 1, 1, 0);
+  padding: 0;
+  max-width: 112.5px;
+  max-height: 112.5px;
+}
+.selected-button-hex {
+  margin: 0;
+  border: 5px solid gray;
+  padding: 0;
+  width: 112.5px;
+  height: 112.5px;
+}
+.hex-image {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+}
+.hex-button-image {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.coordinates, .cosmoid-text {
+  position: relative;
+  left: 33.75px;
+  top: 33.75px;
+  font-weight: bolder;
+  color: pink;
+}
+.clickable-hexpart {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  pointer-events: all;
+}
+.board-selecting-button {
+  width: 5em;
+  background-color: lightgray;
+  margin: 0.5em;
+  border: 0.2em solid darkgray;
+  border-radius: 1em;
+}
+.selected-board-button {
+  font-weight: bolder;
+  background-color: white;
+  border: 0.2em solid darkgray;
+}
+.scoreboard-cosmoid {
+  height: 100%;
+  width: 100%;
+}
+.scoreboard th {
+  width: 3em;
+  height: 3em;
+}
+.score-datapoint {
+  border: 1px solid black;
+  text-align: center;
+}
+.score-sum {
+  font-weight: bold;
+  text-align: center;
+}
