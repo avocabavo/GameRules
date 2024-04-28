@@ -167,13 +167,16 @@
       HexPaintbrush
     },
     data() {
-      let boards = {'1': new HexBoard('1', 3)}
+      let boards = {
+        '1': new HexBoard('1', 3),
+        '2': new HexBoard('2', 3),
+      }
       return {
         message: 'let\'s score some cosmic hexagons!',
         cosmoids: Object.keys(Cosmoid),
         selectedCosmoid: Cosmoid.empty,
         boards,
-        boardsArray: [boards['1']],
+        boardsArray: [boards['1'], boards['2']],
         selectedBoard: boards['1'],
         refreshKey: 0,
         imageData: null,

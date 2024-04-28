@@ -59,12 +59,16 @@
   height: 100%;
   pointer-events: none;
 }
+#selector-pen {
+  display: flex;
+  flex-direction: row;
+}
 .button-hex {
   margin: 0;
   border: 0;
   padding: 0;
-  width: 112.5px;
-  height: 112.5px;
+  max-width: 112.5px;
+  max-height: 112.5px;
 }
 .selected-button-hex {
   margin: 0;
