@@ -26,6 +26,12 @@
   position: relative;
   z-index: 1;
 }
+#editor-overlay button {
+  pointer-events: all;
+}
+.brick {
+  pointer-events: none;
+}
 .board-content {
   position: absolute;
   top: 0;

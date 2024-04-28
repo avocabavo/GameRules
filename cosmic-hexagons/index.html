@@ -31,7 +31,7 @@
     </div>
     <div id="hex-editor">
       <div id="the-board">
-        <div class="board-content">
+        <div class="board-content" :class="{brick: picState != PicState.closed}">
           <hex
             v-for="tile in selectedBoard.tiles"
             :position="tile.position"
@@ -39,7 +39,7 @@
             v-on:paint-me="paint"
           ></hex>
         </div>
-        <div class="board-content">
+        <div class="board-content" :class="{brick: picState == PicState.closed}">
           <div id="editor-overlay">
             <button
               v-if="picState == PicState.closed"
@@ -274,6 +274,7 @@
       cancelPicture() {
         let videoContainer = document.getElementById('video-container')
         videoContainer.innerHTML = ''
+        this.picState = PicState.closed
       },
     },
     computed: {
