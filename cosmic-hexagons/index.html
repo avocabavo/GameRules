@@ -31,45 +31,49 @@
     </div>
     <div id="hex-editor">
       <div id="the-board">
-        <hex
-          v-for="tile in selectedBoard.tiles"
-          :position="tile.position"
-          :cosmoid="tile.cosmoid"
-          v-on:paint-me="paint"
-        ></hex>
-        <div id="editor-overlay">
-          <button
-            v-if="picState == PicState.closed"
-            @click="takePicture"
-          >Take Picture</button>
-          <div
-            v-show="picState != PicState.closed"
-            id="video-container"
-          ></div>
-          <button
-            v-if="picState == PicState.confirmPic"
-            @click="detectObjects"
-          >Detect Objects</button>
-          <button
-            v-if="picState == PicState.confirmPic"
-            @click="takePicture"
-          >Try Again</button>
-          <button
-            v-if="picState != PicState.closed"
-            @click="cancelPicture"
-          >Cancel</button>
+        <div class="board-content">
+          <hex
+            v-for="tile in selectedBoard.tiles"
+            :position="tile.position"
+            :cosmoid="tile.cosmoid"
+            v-on:paint-me="paint"
+          ></hex>
+        </div>
+        <div class="board-content">
+          <div id="editor-overlay">
+            <button
+              v-if="picState == PicState.closed"
+              @click="takePicture"
+            >Take Picture</button>
+            <div
+              v-show="picState != PicState.closed"
+              id="video-container"
+            ></div>
+            <button
+              v-if="picState == PicState.confirmPic"
+              @click="detectObjects"
+            >Detect Objects</button>
+            <button
+              v-if="picState == PicState.confirmPic"
+              @click="takePicture"
+            >Try Again</button>
+            <button
+              v-if="picState != PicState.closed"
+              @click="cancelPicture"
+            >Cancel</button>
+          </div>
         </div>
       </div>
-      <div
-        id="selector-pen"
-      >
-        <hex-paintbrush
-          v-for="cosmoid in cosmoids"
-          :cosmoid="cosmoid"
-          :selected="cosmoid == selectedCosmoid"
-          v-on:select-me="selectedCosmoid = cosmoid"
-        ></hex-paintbrush>
-      </div>
+    </div>
+    <div
+      id="selector-pen"
+    >
+      <hex-paintbrush
+        v-for="cosmoid in cosmoids"
+        :cosmoid="cosmoid"
+        :selected="cosmoid == selectedCosmoid"
+        v-on:select-me="selectedCosmoid = cosmoid"
+      ></hex-paintbrush>
     </div>
     <div id="score-report">
       <table class="scoreboard">
@@ -307,7 +311,7 @@
           baseValue = 16
         } else if (playerCount == 5) {
           baseValue = 12
-        } else if (playercount == 6) {
+        } else if (playerCount == 6) {
           baseValue = 10
         }
         let blackHoleCounts = this.boardsArray.map(board=> board.holeCount())
